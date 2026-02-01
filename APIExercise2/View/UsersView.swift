@@ -41,7 +41,7 @@ struct UsersView: View {
                                     .font(.body)
                                 Text("Email: \(user.email)")
                                     .font(.caption)
-                                Text("websire: \(user.website)")
+                                Text("website: \(user.website)")
                                     .font(.caption)
                                 Text("Phone Number: \(user.phone)")
                                     .font(.caption)
@@ -64,8 +64,11 @@ struct UsersView: View {
                     .listStyle(PlainListStyle())
                 }
                 .navigationTitle(Text("Users"))
-                .searchable(text: $searchText, prompt: "Search by name")
+                .searchable(text: $searchText, placement: .automatic, prompt: "Search by name") // Search bar
                 .sheet(isPresented: $showModifyView) {
+//                    guard selectedUser != nil else {
+//                        return
+//                    }
                     if let user = selectedUser {
                         ModifyUsersView(user: user, viewModel: viewModel)
                     }

@@ -40,6 +40,7 @@ class UsersViewModel {
         }
     }
     
+    // Updating user from modifyView
     func updateUser(_ updatedUser: UsersResponse) {
         if let index = users.firstIndex(where: { $0.id == updatedUser.id }) {
             users[index] = updatedUser
